@@ -9,7 +9,7 @@ target 'CurrencyConverter' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'NVActivityIndicatorView'
+  pod 'RxSwift'
+  pod 'RxCocoa'
   
-  
-
 end
