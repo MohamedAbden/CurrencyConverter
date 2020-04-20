@@ -11,4 +11,9 @@ import UIKit
 class BaseTableViewCell: UITableViewCell {
     
     var baseViewModel: BaseCellViewModel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+    }
 }
