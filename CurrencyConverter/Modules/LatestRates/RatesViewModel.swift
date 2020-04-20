@@ -93,7 +93,7 @@ class RatesViewModel: BaseViewModel {
             return
         }
         
-        let cellviewModels  = rates.keys.compactMap { (currency) -> RateCellViewModel? in
+        let cellviewModels  = rates.keys.sorted().compactMap { (currency) -> RateCellViewModel? in
             let rate = String(rates[currency] ?? 0)
             return RateCellViewModel(currency: currency, rate: rate )
         }

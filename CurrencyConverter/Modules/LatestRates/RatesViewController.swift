@@ -35,7 +35,11 @@ class RatesViewController: BaseViewController {
     override func configureBindings() {
         super.configureBindings()
         configureHeaderBinding()
-        configureTableViewBinding()
+
+        //fix tableview load warning
+        DispatchQueue.main.async { [weak self] in
+            self?.configureTableViewBinding()
+        }
     }
     
     func configureTableViewBinding(){
@@ -55,7 +59,7 @@ class RatesViewController: BaseViewController {
         viewModel.selectedCurrencySubject.subscribe(onNext: { [weak self] (currencyCellViewModel) in
             guard let self = self else { return }
             let url = URL(string: currencyCellViewModel.countryImageURL)
-            self.selectedCountryImageView.sd_setImage(with: url, placeholderImage: UIImage(named: ""), options: .highPriority, context: nil)
+            self.selectedCountryImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "ic_flagPlaceholder"), options: .highPriority, context: nil)
         }).disposed(by: bag)
     }
     

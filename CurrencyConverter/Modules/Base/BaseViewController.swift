@@ -23,39 +23,6 @@ class BaseViewController: UIViewController {
     }
     
     func configureBindings() {
-        baseViewModel.pushViewController.observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] (viewModel) in
-                guard let self = self else { return }
-                let viewController = UIViewController.init(nibName: viewModel.viewControllerIdentifier, bundle: nil)
-                self.navigationController?.pushViewController(viewController, animated: true)
-            })
-            .disposed(by: bag)
-        
-        
-        baseViewModel.popViewController.observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] (animated) in
-                guard let self = self else { return }
-                self.navigationController?.popViewController(animated: animated)
-            })
-            .disposed(by: bag)
-        
-        baseViewModel.presentViewController.observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] (viewModel) in
-                guard let self = self else { return }
-                let viewController = UIViewController.init(nibName: viewModel.viewControllerIdentifier, bundle: nil)
-                let navigationController = UINavigationController(rootViewController: viewController)
-                self.present(navigationController, animated: true, completion: nil)
-            })
-            .disposed(by: bag)
-        
-        baseViewModel.dismissViewController.observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] (animated, complition) in
-                guard let self = self else { return }
-                self.dismiss(animated: animated, completion: complition)
-            })
-            .disposed(by: bag)
-        
-        
         baseViewModel.showLoading.observeOn(MainScheduler.instance)
             .subscribe(onNext: { (loadingType) in
                 if loadingType == .Default {

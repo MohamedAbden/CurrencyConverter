@@ -33,7 +33,7 @@ class RateTableViewCell: BaseTableViewCell {
             return
         }
         let url = URL(string: viewModel.countryImageURL)
-        countryImageView.sd_setImage(with: url, placeholderImage: UIImage(named: ""), options: .highPriority, context: nil)
+        countryImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "ic_flagPlaceholder"), options: .highPriority, context: nil)
         currencyNameLabel.text = viewModel.currency
         rateLabel.text = viewModel.rate
     }
