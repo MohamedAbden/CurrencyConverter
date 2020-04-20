@@ -21,12 +21,12 @@ class CurrencyConverterNetwrokManager: BaseNetworkManager {
                     single(.success(symbolsResponse))
                     return
                 } catch {
-                    single(.error(APIError()))
+                    single(.error(error))
                     return
                 }
                 
             }) { (apiError) in
-                single(.error(APIError()))
+                single(.error(apiError))
                 return
             }
             return Disposables.create()
@@ -44,11 +44,11 @@ class CurrencyConverterNetwrokManager: BaseNetworkManager {
                     single(.success(symbolsResponse))
                     return
                 } catch {
-                    single(.error(APIError()))
+                    single(.error(error))
                     return
                 }
             }) { (apiError) in
-                single(.error(APIError()))
+                single(.error(apiError))
                 return
             }
             return Disposables.create()
