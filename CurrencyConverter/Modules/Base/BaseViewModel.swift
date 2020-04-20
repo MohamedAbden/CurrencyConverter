@@ -12,8 +12,7 @@ import NVActivityIndicatorView
 
 class BaseViewModel: NSObject {
     
-    
-    let viewControllerIdentifie:String! = ""
+    var viewControllerIdentifier :String { return "" }
     
     var isLoading:Bool = false
     

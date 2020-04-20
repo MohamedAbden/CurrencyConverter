@@ -26,7 +26,7 @@ class BaseViewController: UIViewController {
         baseViewModel.pushViewController.observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] (viewModel) in
                 guard let self = self else { return }
-                let viewController = UIViewController.init(nibName: viewModel.viewControllerIdentifie, bundle: nil)
+                let viewController = UIViewController.init(nibName: viewModel.viewControllerIdentifier, bundle: nil)
                 self.navigationController?.pushViewController(viewController, animated: true)
             })
             .disposed(by: bag)
@@ -42,7 +42,7 @@ class BaseViewController: UIViewController {
         baseViewModel.presentViewController.observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] (viewModel) in
                 guard let self = self else { return }
-                let viewController = UIViewController.init(nibName: viewModel.viewControllerIdentifie, bundle: nil)
+                let viewController = UIViewController.init(nibName: viewModel.viewControllerIdentifier, bundle: nil)
                 let navigationController = UINavigationController(rootViewController: viewController)
                 self.present(navigationController, animated: true, completion: nil)
             })
@@ -78,6 +78,15 @@ class BaseViewController: UIViewController {
                 guard let self  = self else { return }
                 self.emptyStateView = EmptyStateView.emptyStateView(viewModel: emptyStateViewModel, frame: self.view.bounds)
                 self.view.addSubview(self.emptyStateView!)
+            })
+            .disposed(by: bag)
+        
+        
+        baseViewModel.hideEmptyStateSubject.observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                guard let self  = self else { return }
+                self.emptyStateView?.removeFromSuperview()
+                self.emptyStateView = nil
             })
             .disposed(by: bag)
     }
