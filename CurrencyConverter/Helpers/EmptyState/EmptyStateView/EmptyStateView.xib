@@ -93,10 +93,6 @@
                                     <state key="normal">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="NO"/>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="needsMirroring" value="NO"/>
-                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="buttonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="jCp-HY-puC"/>
                                     </connections>
