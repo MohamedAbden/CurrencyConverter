@@ -8,21 +8,19 @@
 
 import Foundation
 
-enum EnviromentLocale : Int {
-    case english
-    case arabic
-}
-
-class EnviromentManager
-{
-    
-    private var currentEnviromentLocale : EnviromentLocale = .english
+class EnviromentManager {
     
     static var shared = EnviromentManager()
     
-    var fixerBaseURL : String {
+    var fixerBaseURL: String {
         get{
-            return  "http://data.fixer.io/api/"
+            return  "http://data.fixer.io/api"
+        }
+    }
+    
+    var fixerAccessKey: String{
+        get{
+            return  "fd53bb3fa4e7430e0383d808704528d1"
         }
     }
 }
