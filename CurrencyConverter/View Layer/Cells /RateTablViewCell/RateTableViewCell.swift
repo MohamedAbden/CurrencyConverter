@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RateTableViewCell: BaseTableViewCell {
     
@@ -35,6 +36,6 @@ class RateTableViewCell: BaseTableViewCell {
         let url = URL(string: viewModel.countryImageURL)
         countryImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "ic_flagPlaceholder"), options: .highPriority, context: nil)
         currencyNameLabel.text = viewModel.currency
-        rateLabel.text = viewModel.rate
+        rateLabel.text = viewModel.rateText
     }
 }

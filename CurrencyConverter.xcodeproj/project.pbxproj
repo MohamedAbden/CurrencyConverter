@@ -31,11 +31,14 @@
 		F6723121244DAEE3006B14BF /* CountryFlagHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6723120244DAEE3006B14BF /* CountryFlagHelper.swift */; };
 		F6723123244DB13E006B14BF /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6723122244DB13E006B14BF /* RatesViewModel.swift */; };
 		F672312F244DFDBF006B14BF /* SymbolsPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672312E244DFDBF006B14BF /* SymbolsPickerViewModel.swift */; };
-		F6723138244DFE16006B14BF /* CurrencyCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6723137244DFE16006B14BF /* CurrencyCellViewModel.swift */; };
+		F6723138244DFE16006B14BF /* SymbolCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6723137244DFE16006B14BF /* SymbolCellViewModel.swift */; };
 		F672313B244DFE36006B14BF /* SymbolsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6723139244DFE36006B14BF /* SymbolsPickerViewController.swift */; };
 		F672313C244DFE36006B14BF /* SymbolsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F672313A244DFE36006B14BF /* SymbolsPickerViewController.xib */; };
-		F672313F244DFEAE006B14BF /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672313D244DFEAE006B14BF /* CurrencyTableViewCell.swift */; };
-		F6723140244DFEAE006B14BF /* CurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F672313E244DFEAE006B14BF /* CurrencyTableViewCell.xib */; };
+		F6849A94244E4519004E5B7D /* SymbolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6849A92244E4519004E5B7D /* SymbolTableViewCell.swift */; };
+		F6849A95244E4519004E5B7D /* SymbolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6849A93244E4519004E5B7D /* SymbolTableViewCell.xib */; };
+		F6849AA0244E6381004E5B7D /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6849A9E244E6381004E5B7D /* CalculatorViewController.swift */; };
+		F6849AA1244E6381004E5B7D /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6849A9F244E6381004E5B7D /* CalculatorViewController.xib */; };
+		F6849AA3244E6393004E5B7D /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6849AA2244E6393004E5B7D /* CalculatorViewModel.swift */; };
 		F6DFAB2F244D28E000E972E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFAB2E244D28E000E972E8 /* AppDelegate.swift */; };
 		F6DFAB31244D28E000E972E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFAB30244D28E000E972E8 /* SceneDelegate.swift */; };
 		F6DFAB38244D28E100E972E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6DFAB37244D28E100E972E8 /* Assets.xcassets */; };
@@ -71,11 +74,14 @@
 		F6723120244DAEE3006B14BF /* CountryFlagHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryFlagHelper.swift; sourceTree = "<group>"; };
 		F6723122244DB13E006B14BF /* RatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModel.swift; sourceTree = "<group>"; };
 		F672312E244DFDBF006B14BF /* SymbolsPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsPickerViewModel.swift; sourceTree = "<group>"; };
-		F6723137244DFE16006B14BF /* CurrencyCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCellViewModel.swift; sourceTree = "<group>"; };
+		F6723137244DFE16006B14BF /* SymbolCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolCellViewModel.swift; sourceTree = "<group>"; };
 		F6723139244DFE36006B14BF /* SymbolsPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsPickerViewController.swift; sourceTree = "<group>"; };
 		F672313A244DFE36006B14BF /* SymbolsPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolsPickerViewController.xib; sourceTree = "<group>"; };
-		F672313D244DFEAE006B14BF /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
-		F672313E244DFEAE006B14BF /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
+		F6849A92244E4519004E5B7D /* SymbolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolTableViewCell.swift; sourceTree = "<group>"; };
+		F6849A93244E4519004E5B7D /* SymbolTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolTableViewCell.xib; sourceTree = "<group>"; };
+		F6849A9E244E6381004E5B7D /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		F6849A9F244E6381004E5B7D /* CalculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
+		F6849AA2244E6393004E5B7D /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		F6DFAB2B244D28E000E972E8 /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DFAB2E244D28E000E972E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6DFAB30244D28E000E972E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,7 +194,6 @@
 		F672310A244DA564006B14BF /* LatestRates */ = {
 			isa = PBXGroup;
 			children = (
-				F6723122244DB13E006B14BF /* RatesViewModel.swift */,
 				F672310B244DA591006B14BF /* RatesViewController.swift */,
 				F672310C244DA591006B14BF /* RatesViewController.xib */,
 			);
@@ -200,7 +205,6 @@
 			children = (
 				F6723111244DA978006B14BF /* RateTableViewCell.swift */,
 				F6723112244DA978006B14BF /* RateTableViewCell.xib */,
-				F672311D244DAC32006B14BF /* RateCellViewModel.swift */,
 			);
 			path = RateTablViewCell;
 			sourceTree = "<group>";
@@ -224,7 +228,6 @@
 		F6723124244DDC13006B14BF /* SymbolsPicker */ = {
 			isa = PBXGroup;
 			children = (
-				F672312E244DFDBF006B14BF /* SymbolsPickerViewModel.swift */,
 				F6723139244DFE36006B14BF /* SymbolsPickerViewController.swift */,
 				F672313A244DFE36006B14BF /* SymbolsPickerViewController.xib */,
 			);
@@ -243,11 +246,67 @@
 		F6723132244DFDF3006B14BF /* CurrencyTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				F672313D244DFEAE006B14BF /* CurrencyTableViewCell.swift */,
-				F672313E244DFEAE006B14BF /* CurrencyTableViewCell.xib */,
-				F6723137244DFE16006B14BF /* CurrencyCellViewModel.swift */,
+				F6849A92244E4519004E5B7D /* SymbolTableViewCell.swift */,
+				F6849A93244E4519004E5B7D /* SymbolTableViewCell.xib */,
 			);
 			path = CurrencyTableViewCell;
+			sourceTree = "<group>";
+		};
+		F6849A98244E627E004E5B7D /* ViewModel Layer */ = {
+			isa = PBXGroup;
+			children = (
+				F6849A9B244E629A004E5B7D /* Base */,
+				F6849A99244E628B004E5B7D /* CellViewModel */,
+				F6849A9A244E6294004E5B7D /* View Models */,
+			);
+			path = "ViewModel Layer";
+			sourceTree = "<group>";
+		};
+		F6849A99244E628B004E5B7D /* CellViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F6723137244DFE16006B14BF /* SymbolCellViewModel.swift */,
+				F672311D244DAC32006B14BF /* RateCellViewModel.swift */,
+			);
+			path = CellViewModel;
+			sourceTree = "<group>";
+		};
+		F6849A9A244E6294004E5B7D /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				F6723122244DB13E006B14BF /* RatesViewModel.swift */,
+				F672312E244DFDBF006B14BF /* SymbolsPickerViewModel.swift */,
+				F6849AA2244E6393004E5B7D /* CalculatorViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		F6849A9B244E629A004E5B7D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F67230EB244D50E3006B14BF /* BaseViewModel.swift */,
+				F6723118244DAAC2006B14BF /* BaseCellViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F6849A9D244E6339004E5B7D /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				F6849A9E244E6381004E5B7D /* CalculatorViewController.swift */,
+				F6849A9F244E6381004E5B7D /* CalculatorViewController.xib */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
+		F6849AA9244E8630004E5B7D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F6849A9D244E6339004E5B7D /* Calculator */,
+				F6723124244DDC13006B14BF /* SymbolsPicker */,
+				F672310A244DA564006B14BF /* LatestRates */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		F6DFAB22244D28E000E972E8 = {
@@ -272,8 +331,9 @@
 			isa = PBXGroup;
 			children = (
 				F67230E4244D2F73006B14BF /* Helpers */,
-				F6DFAB44244D2DC000E972E8 /* Modules */,
 				F6DFAB43244D2DB100E972E8 /*  Model Layer */,
+				F6849A98244E627E004E5B7D /* ViewModel Layer */,
+				F6DFAB44244D2DC000E972E8 /* View Layer */,
 				F6DFAB2E244D28E000E972E8 /* AppDelegate.swift */,
 				F6DFAB30244D28E000E972E8 /* SceneDelegate.swift */,
 				F6DFAB37244D28E100E972E8 /* Assets.xcassets */,
@@ -288,9 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				F67230E9244D505F006B14BF /* BaseViewController.swift */,
-				F67230EB244D50E3006B14BF /* BaseViewModel.swift */,
 				F6723116244DAAB4006B14BF /* BaseTableViewCell.swift */,
-				F6723118244DAAC2006B14BF /* BaseCellViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -305,15 +363,14 @@
 			path = " Model Layer";
 			sourceTree = "<group>";
 		};
-		F6DFAB44244D2DC000E972E8 /* Modules */ = {
+		F6DFAB44244D2DC000E972E8 /* View Layer */ = {
 			isa = PBXGroup;
 			children = (
-				F672312C244DDC45006B14BF /* Cells  */,
-				F6723124244DDC13006B14BF /* SymbolsPicker */,
-				F672310A244DA564006B14BF /* LatestRates */,
+				F6849AA9244E8630004E5B7D /* ViewControllers */,
 				F6DFAB42244D2DA200E972E8 /* Base */,
+				F672312C244DDC45006B14BF /* Cells  */,
 			);
-			path = Modules;
+			path = "View Layer";
 			sourceTree = "<group>";
 		};
 		F6DFAB46244D2DF600E972E8 /* Models */ = {
@@ -403,8 +460,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6723140244DFEAE006B14BF /* CurrencyTableViewCell.xib in Resources */,
 				F67230F7244D597F006B14BF /* EmptyStateView.xib in Resources */,
+				F6849AA1244E6381004E5B7D /* CalculatorViewController.xib in Resources */,
+				F6849A95244E4519004E5B7D /* SymbolTableViewCell.xib in Resources */,
 				F6723114244DA978006B14BF /* RateTableViewCell.xib in Resources */,
 				F6276CCA244E20E000CCAA62 /* Main.storyboard in Resources */,
 				F6DFAB3B244D28E100E972E8 /* LaunchScreen.storyboard in Resources */,
@@ -477,17 +535,19 @@
 				F672312F244DFDBF006B14BF /* SymbolsPickerViewModel.swift in Sources */,
 				F6DFAB31244D28E000E972E8 /* SceneDelegate.swift in Sources */,
 				F6723121244DAEE3006B14BF /* CountryFlagHelper.swift in Sources */,
+				F6849AA3244E6393004E5B7D /* CalculatorViewModel.swift in Sources */,
 				F6723119244DAAC2006B14BF /* BaseCellViewModel.swift in Sources */,
 				F67230F0244D5163006B14BF /* SharedEnums.swift in Sources */,
 				F67230EC244D50E3006B14BF /* BaseViewModel.swift in Sources */,
-				F6723138244DFE16006B14BF /* CurrencyCellViewModel.swift in Sources */,
+				F6723138244DFE16006B14BF /* SymbolCellViewModel.swift in Sources */,
+				F6849A94244E4519004E5B7D /* SymbolTableViewCell.swift in Sources */,
 				F672311C244DAB3C006B14BF /* NSObject+Extension.swift in Sources */,
 				F67230E6244D2F85006B14BF /* EnviromentManager.swift in Sources */,
 				F6723107244D6A73006B14BF /* SupportedSymbolResponse.swift in Sources */,
 				F672311E244DAC32006B14BF /* RateCellViewModel.swift in Sources */,
 				F6DFAB4C244D2E8600E972E8 /* BaseNetworkManager.swift in Sources */,
 				F6723123244DB13E006B14BF /* RatesViewModel.swift in Sources */,
-				F672313F244DFEAE006B14BF /* CurrencyTableViewCell.swift in Sources */,
+				F6849AA0244E6381004E5B7D /* CalculatorViewController.swift in Sources */,
 				F67230EA244D505F006B14BF /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,6 +17,8 @@ class RatesViewModel: BaseViewModel {
     var selectedSymbolSubject = PublishSubject<SymbolCellViewModel>()
     let networkManager = CurrencyConverterNetwrokManager()
     var showSymbolsPickerSubject = PublishSubject<SymbolsPickerViewModel>()
+    var showCalculatorSubject = PublishSubject<CalculatorViewModel>()
+    var selectedSymbolCellViewModel :SymbolCellViewModel?
     
     
     override init() {
@@ -44,6 +46,7 @@ class RatesViewModel: BaseViewModel {
             guard let self = self else { return }
             self.configureRatesWith(selectedCurrency: currencyCellViewModel)
             currencyCellViewModel.isSelected.accept(true)
+            self.selectedSymbolCellViewModel = currencyCellViewModel
         }).disposed(by: bag)
     }
     
@@ -91,11 +94,15 @@ class RatesViewModel: BaseViewModel {
             return
         }
         
-        let cellviewModels  = rates.keys.sorted().compactMap { (currency) -> RateCellViewModel? in
-            let rate = String(format: "%0.2f", rates[currency] ?? 0)
-            return RateCellViewModel(currency: currency, rate: rate )
+        let cellviewModels  = rates.keys.sorted().compactMap { [weak self] (currency) -> RateCellViewModel? in
+            guard let self = self else { return nil }
+            if self.selectedSymbolCellViewModel?.currency == currency {
+                return nil
+            }
+            else{
+                return RateCellViewModel(currency: currency, rate: rates[currency] ?? 0)
+            }
         }
-        
         ratesdataSource.accept(cellviewModels)
     }
     
@@ -105,6 +112,14 @@ class RatesViewModel: BaseViewModel {
             self.selectedSymbolSubject.onNext(selectedCellviewModel)
         }).disposed(by: bag)
         showSymbolsPickerSubject.onNext(pickerViewModel)
+    }
+    
+    func handleSelectionFor(cellViewModel:RateCellViewModel){
+        guard let symbolCellViewModel = selectedSymbolCellViewModel else {
+            return
+        }
+        let calculatorViewModel = CalculatorViewModel(baseCurrency: symbolCellViewModel.currency, selectedCurrency: cellViewModel.currency, selectedRate: cellViewModel.rate)
+        showCalculatorSubject.onNext(calculatorViewModel)
     }
     
 }

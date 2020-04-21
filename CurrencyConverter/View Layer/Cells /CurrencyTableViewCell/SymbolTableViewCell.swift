@@ -39,7 +39,7 @@ class SymbolTableViewCell: BaseTableViewCell {
         let url = URL(string: viewModel.countryImageURL)
         countryImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "ic_flagPlaceholder"), options: .highPriority, context: nil)
         nameLabel.text = viewModel.name
-        viewModel.isSelected.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (isSelected) in
+        viewModel.isSelected.asObservable().observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (isSelected) in
             guard let self = self else { return }
             self.accessoryType = isSelected ? .checkmark : .none
         }).disposed(by: bag)

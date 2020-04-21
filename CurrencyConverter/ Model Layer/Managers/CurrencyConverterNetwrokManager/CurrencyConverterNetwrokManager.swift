@@ -53,7 +53,6 @@ class CurrencyConverterNetwrokManager: BaseNetworkManager {
             }
             return Disposables.create()
         }
-    }
-    
+    }    
 }
 

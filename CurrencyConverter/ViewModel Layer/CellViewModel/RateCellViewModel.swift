@@ -12,18 +12,19 @@ import Foundation
 class RateCellViewModel: BaseCellViewModel {
     
     var countryImageURL:String = ""
-    var rate:String = ""
-    var currency:String = ""
+    var rateText:String = ""
+    var rate:Float
+    var currency:String
     
-    init(currency:String,rate:String) {
+    init(currency:String,rate:Float) {
         self.rate = rate
+        self.rateText = "\(rate)"
         self.currency = currency
         super.init()
         configureCountryFlagURL()
     }
     
     func configureCountryFlagURL(){
-        let code = String(currency.dropLast())
-        self.countryImageURL = CountryFlagHelper.getFlagURLfor(code: code)
+        self.countryImageURL = CountryFlagHelper.getFlagURLfor(currencyCode: currency)
     }
 }

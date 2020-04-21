@@ -20,15 +20,15 @@ class SymbolsPickerViewModel: BaseViewModel {
         self.symbolsdataSource = dataSource
     }
     
-    func handleSelection(selectedCellViewModel:SymbolCellViewModel){
+    func handleSelectionfor(cellViewModel:SymbolCellViewModel){
         let oldCellViewModel = symbolsdataSource.value.first { (cellViewModel) -> Bool in
             return cellViewModel.isSelected.value
         }
         if let oldCellViewModel = oldCellViewModel {
             oldCellViewModel.isSelected.accept(false)
         }
-        selectedCellViewModel.isSelected.accept(true)
-        selectedSymbol.onNext(selectedCellViewModel)
+        cellViewModel.isSelected.accept(true)
+        selectedSymbol.onNext(cellViewModel)
         dismissView()
     }
 }

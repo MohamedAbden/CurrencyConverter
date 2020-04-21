@@ -24,7 +24,6 @@ class SymbolCellViewModel: BaseCellViewModel {
     }
     
     func configureCountryFlagURL(){
-        let code = String(currency.dropLast())
-        self.countryImageURL = CountryFlagHelper.getFlagURLfor(code: code)
+        self.countryImageURL = CountryFlagHelper.getFlagURLfor(currencyCode: currency)
     }
 }

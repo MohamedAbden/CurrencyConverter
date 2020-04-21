@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import RxSwift
 
 class SymbolsPickerViewController: BaseViewController {
-
+    
     private var viewModel:SymbolsPickerViewModel!
     override var baseViewModel: BaseViewModel!{
         didSet{
@@ -44,23 +45,24 @@ extension SymbolsPickerViewController {
         tableView.register(UINib(nibName: SymbolTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: SymbolTableViewCell.identifier)
         
         viewModel.symbolsdataSource
+            .observeOn(MainScheduler.instance)
             .bind(to: tableView
                 .rx
                 .items(cellIdentifier: SymbolTableViewCell.identifier, cellType: SymbolTableViewCell.self)) {
                     rowIndex, cellViewModel, cell in
                     cell.baseViewModel = cellViewModel
-        }
+                }
         .disposed(by: bag)
     }
     
     func configureTableViewSelection() {
-      tableView
-        .rx
-        .modelSelected(SymbolCellViewModel.self)
-        .subscribe(onNext: { [unowned self] cellViewModel in
-            self.viewModel.handleSelectionfor(cellViewModel: cellViewModel)
-        })
-        .disposed(by: bag)
+        tableView
+            .rx
+            .modelSelected(SymbolCellViewModel.self)
+            .subscribe(onNext: { [unowned self] cellViewModel in
+                self.viewModel.handleSelectionfor(cellViewModel: cellViewModel)
+            })
+            .disposed(by: bag)
     }
 }
 
