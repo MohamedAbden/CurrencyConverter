@@ -394,8 +394,8 @@
 		F6DFAB48244D2E0B00E972E8 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				F67230FD244D649D006B14BF /* CurrencyConverterRouter */,
 				F6DFAB49244D2E7D00E972E8 /* BaseRouter.swift */,
+				F67230FD244D649D006B14BF /* CurrencyConverterRouter */,
 			);
 			path = Router;
 			sourceTree = "<group>";

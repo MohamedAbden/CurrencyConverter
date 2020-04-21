@@ -31,13 +31,13 @@ class RatesViewModel: BaseViewModel {
         networkManager.getSupportedSymbols().subscribe(
             onSuccess: { [weak self] (SymbolsResponse) in
                 guard let self = self else { return }
+                self.hideLoading(loadingType: .Placeholder)
                 self.configureSymbolsDataSource(symbolsResponse: SymbolsResponse)
             },
             onError: { [weak self] (apiError) in
                 guard let self = self else { return }
                 self.hideLoading(loadingType: .Placeholder)
-                let emptyStateViewModel = EmptyStateViewModel(title: "an error has occurred", description: nil, imageName: nil, buttonTitle: nil)
-                self.showEmptyStateWith(viewModel: emptyStateViewModel)
+                self.showErrorEmptyState()
         }).disposed(by: bag)
     }
     
@@ -51,7 +51,7 @@ class RatesViewModel: BaseViewModel {
     }
     
     private func configureRatesWith(selectedCurrency:SymbolCellViewModel){
-//        showLoading(loadingType: .Placeholder)
+        showLoading(loadingType: .Placeholder)
         networkManager.getRates(base: selectedCurrency.currency).subscribe(
             onSuccess: { [weak self] (rateResponse) in
                 guard let self = self else { return }
@@ -61,14 +61,13 @@ class RatesViewModel: BaseViewModel {
             onError: { [weak self] (apiError) in
                 guard let self = self else { return }
                 self.hideLoading(loadingType: .Placeholder)
-                let emptyStateViewModel = EmptyStateViewModel(title: "an error has occurred", description: nil, imageName: nil, buttonTitle: nil)
-                self.showEmptyStateWith(viewModel: emptyStateViewModel)
+                self.showErrorEmptyState()
         }).disposed(by: bag)
     }
     
     private func configureSymbolsDataSource(symbolsResponse:SupportedSymbolResponse){
         guard let symbols = symbolsResponse.symbols else {
-            let emptyStateViewModel = EmptyStateViewModel(title: "No Data", description: nil, imageName: nil, buttonTitle: nil)
+            let emptyStateViewModel = EmptyStateViewModel(title: "No Data", description: nil)
             self.showEmptyStateWith(viewModel: emptyStateViewModel)
             return
         }
@@ -89,7 +88,7 @@ class RatesViewModel: BaseViewModel {
     
     private func configureRatesDataSource(rateResponse:RateResponse){
         guard let rates = rateResponse.rates else {
-            let emptyStateViewModel = EmptyStateViewModel(title: "No Data", description: nil, imageName: nil, buttonTitle: nil)
+            let emptyStateViewModel = EmptyStateViewModel(title: "No Data", description: nil)
             self.showEmptyStateWith(viewModel: emptyStateViewModel)
             return
         }
@@ -120,6 +119,11 @@ class RatesViewModel: BaseViewModel {
         }
         let calculatorViewModel = CalculatorViewModel(baseCurrency: symbolCellViewModel.currency, selectedCurrency: cellViewModel.currency, selectedRate: cellViewModel.rate)
         showCalculatorSubject.onNext(calculatorViewModel)
+    }
+    
+    func showErrorEmptyState(){
+        let emptyStateViewModel = EmptyStateViewModel(title: "an error has occurred", description: nil)
+        self.showEmptyStateWith(viewModel: emptyStateViewModel)
     }
     
 }

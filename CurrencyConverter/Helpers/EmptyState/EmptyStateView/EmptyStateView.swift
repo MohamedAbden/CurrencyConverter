@@ -46,8 +46,6 @@ class EmptyStateView: UIView {
         configureUI()
     }
     
-    
-    
     //MARK:- Variables
     var viewModel:EmptyStateViewModel!{
         didSet{
@@ -78,13 +76,6 @@ class EmptyStateView: UIView {
     func configureDefaultView(){
         self.loadingView.isHidden = true
         
-        if let imageName = viewModel.imageName{
-            imageView.image = UIImage(named: imageName)
-        }
-        else{
-            imageView.isHidden = true
-        }
-        
         if let title = viewModel.title{
             titleLabel.text = title
         }
@@ -98,17 +89,5 @@ class EmptyStateView: UIView {
         else{
             descriptionLabel.isHidden = true
         }
-        
-        if let buttonTitle = viewModel.buttonTitle{
-            button.setTitle(buttonTitle, for: .normal)
-        }
-        else{
-            button.isHidden = true
-        }
-    }
-    
-    //MARK:- Actions
-    @IBAction func buttonAction(_ sender: Any) {
-        viewModel.buttonAction()
     }
 }

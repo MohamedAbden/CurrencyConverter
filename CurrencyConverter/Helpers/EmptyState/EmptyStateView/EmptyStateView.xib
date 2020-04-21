@@ -14,7 +14,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Bhv-LW-DX8">
-                    <rect key="frame" x="20" y="175.5" width="335" height="316"/>
+                    <rect key="frame" x="20" y="251.5" width="335" height="164"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9X6-cy-KaT">
                             <rect key="frame" x="0.0" y="0.0" width="335" height="90"/>
@@ -62,41 +62,20 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ldK-hr-mKE">
-                            <rect key="frame" x="0.0" y="90" width="335" height="226"/>
+                            <rect key="frame" x="0.0" y="90" width="335" height="74"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6KG-PY-d2l">
-                                    <rect key="frame" x="97.5" y="0.0" width="140" height="140"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="140" id="caS-ED-4r2"/>
-                                        <constraint firstAttribute="height" constant="140" id="vgz-Pb-88L"/>
-                                    </constraints>
-                                </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR8-Se-dfS">
-                                    <rect key="frame" x="143.5" y="152" width="48" height="24"/>
+                                    <rect key="frame" x="143.5" y="0.0" width="48" height="24"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                     <color key="textColor" red="0.36470588240000001" green="0.43137254899999999" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ljasndflasjndfl,mansdf,mnasdljfnljasdnfljasndfljnasdjlfnalsjdnflasdf" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhK-fX-mQ9">
-                                    <rect key="frame" x="0.5" y="188" width="334" height="38"/>
+                                    <rect key="frame" x="0.5" y="36" width="334" height="38"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                     <color key="textColor" red="0.20392156862745098" green="0.21176470588235294" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKX-6e-NOp">
-                                    <rect key="frame" x="67.5" y="226" width="200" height="45"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="200" id="UXY-Er-ZAf"/>
-                                        <constraint firstAttribute="height" constant="45" id="wNw-Jh-aCu"/>
-                                    </constraints>
-                                    <state key="normal">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="buttonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="jCp-HY-puC"/>
-                                    </connections>
-                                </button>
                             </subviews>
                         </stackView>
                     </subviews>
@@ -114,10 +93,8 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="activityIndicatorView" destination="ox1-9B-38g" id="XJy-dP-HfZ"/>
-                <outlet property="button" destination="KKX-6e-NOp" id="PyK-sL-DQb"/>
                 <outlet property="defaultEmptyStateView" destination="ldK-hr-mKE" id="gaQ-7e-GLn"/>
                 <outlet property="descriptionLabel" destination="bhK-fX-mQ9" id="Tse-GR-Q4A"/>
-                <outlet property="imageView" destination="6KG-PY-d2l" id="usO-Oe-Pj7"/>
                 <outlet property="loadingLabel" destination="skA-ci-Q0y" id="tfg-m0-UAb"/>
                 <outlet property="loadingView" destination="9X6-cy-KaT" id="BLx-tx-CZw"/>
                 <outlet property="titleLabel" destination="cR8-Se-dfS" id="TRn-d2-kY1"/>
