@@ -28,6 +28,7 @@ class CurrencyConverterRouter:BaseRouter {
             return .get
         }
     }
+    
     override var path: String{
         switch endPoint {
         case .getSupportedSymbols:
@@ -36,6 +37,7 @@ class CurrencyConverterRouter:BaseRouter {
             return "/latest"
         }
     }
+    
     override var encoding: ParameterEncoding?{
         
         switch method {
@@ -50,8 +52,8 @@ class CurrencyConverterRouter:BaseRouter {
         switch endPoint {
         case .getSupportedSymbols:
             return ["access_key":EnviromentManager.shared.fixerAccessKey as AnyObject]
-        case .getLatestRates(let base):
-            return ["key":base as AnyObject,
+        case .getLatestRates(_):
+            return [/*"base":base as AnyObject,*/
                     "access_key":EnviromentManager.shared.fixerAccessKey as AnyObject]
         }
     }
