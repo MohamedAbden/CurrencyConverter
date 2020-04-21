@@ -9,7 +9,8 @@
 import Foundation
 
 class CountryFlagHelper {
-    static func getFlagURLfor(code:String,size:Int = 80) -> String{
-        return "https://www.countryflags.io/\(code)/flat/\(64).png"
+    static func getFlagURLfor(currencyCode:String,size:Int = 64) -> String{
+        let code = String(currencyCode.dropLast())
+        return "https://www.countryflags.io/\(code)/flat/\(size).png"
     }
 }
