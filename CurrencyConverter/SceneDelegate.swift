@@ -17,11 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        let ratesViewModel = RatesViewModel()
-        let ratesViewController = RatesViewController(nibName: ratesViewModel.viewControllerIdentifier, bundle: nil)
-        ratesViewController.baseViewModel = ratesViewModel
-        let navigationController = UINavigationController(rootViewController: ratesViewController)
-        window?.rootViewController = navigationController
+        
+        let ratesViewController = RatesViewController(viewModel: RatesViewModel())
+        window?.rootViewController = ratesViewController
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
