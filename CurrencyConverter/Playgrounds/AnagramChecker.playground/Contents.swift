@@ -7,3 +7,4 @@ func anagramChecker(_ firstString:String,_ secondString:String) -> Bool{
 
 let anagramSuccess = anagramChecker("debit card","bad credit")
 
+let anagramFailure = anagramChecker("punishments","nine thumps")
