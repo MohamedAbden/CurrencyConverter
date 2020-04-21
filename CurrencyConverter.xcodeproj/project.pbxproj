@@ -83,6 +83,7 @@
 		F6849A9F244E6381004E5B7D /* CalculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
 		F6849AA2244E6393004E5B7D /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		F6B4727B244F1E480056B2C7 /* Fibonacci.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Fibonacci.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F6B4727C244F24590056B2C7 /* AnagramChecker.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AnagramChecker.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F6DFAB2B244D28E000E972E8 /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DFAB2E244D28E000E972E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6DFAB30244D28E000E972E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -314,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				F6B4727B244F1E480056B2C7 /* Fibonacci.playground */,
+				F6B4727C244F24590056B2C7 /* AnagramChecker.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";

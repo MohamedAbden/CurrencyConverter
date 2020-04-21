@@ -45,4 +45,8 @@ class SymbolTableViewCell: BaseTableViewCell {
         }).disposed(by: bag)
         
     }
+    
+    func anagramChecker(_ firstString:String,_ secondString:String) -> Bool{
+        return firstString.lowercased().sorted() == secondString.lowercased().sorted()
+    }
 }
