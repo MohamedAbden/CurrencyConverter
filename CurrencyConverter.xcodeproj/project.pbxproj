@@ -82,6 +82,7 @@
 		F6849A9E244E6381004E5B7D /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		F6849A9F244E6381004E5B7D /* CalculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
 		F6849AA2244E6393004E5B7D /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
+		F6B4727B244F1E480056B2C7 /* Fibonacci.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Fibonacci.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F6DFAB2B244D28E000E972E8 /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DFAB2E244D28E000E972E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6DFAB30244D28E000E972E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -309,6 +310,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		F6B4727A244F1E3A0056B2C7 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				F6B4727B244F1E480056B2C7 /* Fibonacci.playground */,
+			);
+			path = Playgrounds;
+			sourceTree = "<group>";
+		};
 		F6DFAB22244D28E000E972E8 = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +339,7 @@
 		F6DFAB2D244D28E000E972E8 /* CurrencyConverter */ = {
 			isa = PBXGroup;
 			children = (
+				F6B4727A244F1E3A0056B2C7 /* Playgrounds */,
 				F67230E4244D2F73006B14BF /* Helpers */,
 				F6DFAB43244D2DB100E972E8 /*  Model Layer */,
 				F6849A98244E627E004E5B7D /* ViewModel Layer */,
