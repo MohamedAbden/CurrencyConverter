@@ -72,4 +72,8 @@ class BaseViewController: UIViewController {
             })
             .disposed(by: bag)
     }
+    
+    deinit {
+        print(String(describing: self) + "deinit")
+    }
 }

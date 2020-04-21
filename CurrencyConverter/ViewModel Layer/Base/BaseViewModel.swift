@@ -62,4 +62,8 @@ class BaseViewModel: NSObject {
     func dismissView(){
         dismissViewControllerSubject.onNext(())
     }
+    
+    deinit {
+        print(String(describing: self) + "deinit")
+    }
 }
