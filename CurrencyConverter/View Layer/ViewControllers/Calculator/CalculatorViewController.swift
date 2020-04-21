@@ -14,13 +14,13 @@ import RxSwift
 class CalculatorViewController: BaseViewController {
     
     private var viewModel:CalculatorViewModel!
-      override var baseViewModel: BaseViewModel!{
-          didSet{
-              self.viewModel = baseViewModel as? CalculatorViewModel
-          }
-      }
-      
-    @IBOutlet weak var baseCountryImageURL: UIImageView!
+    override var baseViewModel: BaseViewModel!{
+        didSet{
+            self.viewModel = baseViewModel as? CalculatorViewModel
+        }
+    }
+    
+    @IBOutlet weak var baseCountryImageView: UIImageView!
     @IBOutlet weak var baseRateTextField: UITextField!
     @IBOutlet weak var baseCurrencyLabel: UILabel!
     
@@ -28,7 +28,7 @@ class CalculatorViewController: BaseViewController {
     @IBOutlet weak var selectedCurrencyLabel: UILabel!
     @IBOutlet weak var selectedCountryImageView: UIImageView!
     
-    init(viewModel:BaseViewModel) {
+    init(viewModel:CalculatorViewModel) {
         super.init(nibName:CalculatorViewController.identifier, bundle: nil)
         self.baseViewModel = viewModel
     }
@@ -40,23 +40,36 @@ class CalculatorViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBindings()
-        bindUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         baseRateTextField.becomeFirstResponder()
     }
-        
+    
     override func configureBindings() {
         super.configureBindings()
         
-    }
-    
-    func bindUI(){
-        baseCurrencyLabel.text = viewModel.baseCurrency
-        selectedCurrencyLabel.text = viewModel.selectedCurrency
+        viewModel.baseCurrency.asObservable().bind(to: baseCurrencyLabel.rx.text).disposed(by: bag)
+        viewModel.selectedCurrency.asObservable().bind(to: selectedCurrencyLabel.rx.text).disposed(by: bag)
+        
+        viewModel.baseCountryImageURL.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (urlString) in
+            guard let self = self else { return }
+            let url  = URL(string: urlString)
+            self.baseCountryImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "ic_flagPlaceholder"), options: .highPriority, context: nil)
+        }).disposed(by: bag)
+        viewModel.selectedCountryImageURL.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (urlString) in
+            guard let self = self else { return }
+            let url  = URL(string: urlString)
+            self.selectedCountryImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "ic_flagPlaceholder"), options: .highPriority, context: nil)
+        }).disposed(by: bag)
         
         
+        viewModel.rateText.asObservable().bind(to: totalAmountLabel.rx.text).disposed(by: bag)
+        viewModel.baseAmount.asObservable().bind(to: baseRateTextField.rx.text).disposed(by: bag)
+        baseRateTextField.rx.text.asObservable().subscribe(onNext: { [weak self] (text) in
+            guard let self = self else { return }
+            self.viewModel.updateBaseAmountWith(text: text)
+        }).disposed(by: bag)
     }
 }

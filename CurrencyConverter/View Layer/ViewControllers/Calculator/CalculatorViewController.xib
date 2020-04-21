@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalculatorViewController" customModule="CurrencyConverter" customModuleProvider="target">
             <connections>
-                <outlet property="baseCountryImageURL" destination="jEq-da-ljR" id="7aq-4z-Q8g"/>
+                <outlet property="baseCountryImageView" destination="jEq-da-ljR" id="5Hi-65-lIe"/>
                 <outlet property="baseCurrencyLabel" destination="jRf-VG-MmQ" id="Xwg-Gh-Wdn"/>
                 <outlet property="baseRateTextField" destination="4Mn-Xk-KZV" id="5os-pJ-g5s"/>
                 <outlet property="selectedCountryImageView" destination="Vm3-D6-IZN" id="9Py-q9-009"/>
@@ -32,16 +32,19 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBt-3E-Lhh">
                                     <rect key="frame" x="0.0" y="0.0" width="394" height="90"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6Yo-KL-kfM">
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yo-KL-kfM">
                                             <rect key="frame" x="10" y="0.0" width="374" height="90"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Mn-Xk-KZV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="287.5" height="90"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="label" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Mn-Xk-KZV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="274" height="90"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRf-VG-MmQ">
-                                                    <rect key="frame" x="292.5" y="0.0" width="46.5" height="90"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRf-VG-MmQ">
+                                                    <rect key="frame" x="274" y="0.0" width="70" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="NF4-yL-JTt"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -80,17 +83,20 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m16-84-MwG">
                                     <rect key="frame" x="0.0" y="90" width="394" height="90"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nnC-jU-j33">
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nnC-jU-j33">
                                             <rect key="frame" x="10" y="0.0" width="374" height="90"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cx-Rr-zhz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="287.5" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="274" height="90"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLR-cB-i00">
-                                                    <rect key="frame" x="292.5" y="0.0" width="46.5" height="90"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLR-cB-i00">
+                                                    <rect key="frame" x="274" y="0.0" width="70" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="cpG-NF-XkN"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
