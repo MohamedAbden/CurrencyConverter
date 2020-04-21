@@ -26,6 +26,15 @@ class RatesViewController: BaseViewController {
     @IBOutlet weak var selectedCountryLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    init(viewModel:RatesViewModel) {
+         super.init(nibName:RatesViewController.identifier, bundle: nil)
+         self.baseViewModel = viewModel
+     }
+     
+     required init?(coder: NSCoder) {
+         fatalError("init(coder:) has not been implemented")
+     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -70,13 +79,13 @@ class RatesViewController: BaseViewController {
     }
 }
 
-
 extension RatesViewController {
     
     func configureTableViewBinding(){
         tableView.register(UINib(nibName: RateTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RateTableViewCell.identifier)
         
         viewModel.ratesdataSource
+            .observeOn(MainScheduler.instance)
             .bind(to: tableView
                 .rx
                 .items(cellIdentifier: RateTableViewCell.identifier, cellType: RateTableViewCell.self)) {
