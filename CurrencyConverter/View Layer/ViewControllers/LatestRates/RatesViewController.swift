@@ -9,6 +9,7 @@
 
 import UIKit
 import SDWebImage
+import RxSwift
 import RxCocoa
 
 class RatesViewController: BaseViewController {
@@ -27,20 +28,50 @@ class RatesViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
+        configureUI()
         configureBindings()
         viewModel.configureSymbols()
     }
     
     override func configureBindings() {
         super.configureBindings()
+        configureNavigationBindings()
         configureHeaderBinding()
-
+        
         //fix tableview load warning
-        DispatchQueue.main.async { [weak self] in
-            self?.configureTableViewBinding()
+        DispatchQueue.main.async { [unowned self] in
+            self.configureTableViewBinding()
         }
     }
+    
+    func configureNavigationBindings(){
+        viewModel.showSymbolsPickerSubject.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (viewModel) in
+            guard let self = self else { return }
+            let viewController = SymbolsPickerViewController(viewModel: viewModel)
+            self.present(viewController, animated: true, completion: nil)
+        }).disposed(by: bag)
+        
+        viewModel.showCalculatorSubject.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (viewModel) in
+            guard let self = self else { return }
+            let viewController = CalculatorViewController(viewModel: viewModel)
+            self.present(viewController, animated: true, completion: nil)
+        }).disposed(by: bag)
+    }
+    
+    func configureUI(){
+        self.navigationController?.navigationBar.isHidden = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSelectedCountryAction))
+        selectedCountryView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func handleSelectedCountryAction(){
+        viewModel.handleActionForSelectedSymbol()
+    }
+}
+
+
+extension RatesViewController {
     
     func configureTableViewBinding(){
         tableView.register(UINib(nibName: RateTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RateTableViewCell.identifier)
@@ -53,14 +84,22 @@ class RatesViewController: BaseViewController {
                     cell.baseViewModel = cellViewModel
         }
         .disposed(by: bag)
+        
+        tableView
+            .rx
+            .modelSelected(RateCellViewModel.self)
+            .subscribe(onNext: { [unowned self] cellViewModel in
+                self.viewModel.handleSelectionFor(cellViewModel: cellViewModel)
+            })
+            .disposed(by: bag)
     }
     
     func configureHeaderBinding(){
-        viewModel.selectedCurrencySubject.subscribe(onNext: { [weak self] (currencyCellViewModel) in
+        viewModel.selectedSymbolSubject.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (currencyCellViewModel) in
             guard let self = self else { return }
             let url = URL(string: currencyCellViewModel.countryImageURL)
             self.selectedCountryImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "ic_flagPlaceholder"), options: .highPriority, context: nil)
+            self.selectedCountryLabel.text = currencyCellViewModel.currency
         }).disposed(by: bag)
     }
-    
 }

@@ -12,8 +12,6 @@ import NVActivityIndicatorView
 
 class BaseViewModel: NSObject {
     
-    var viewControllerIdentifier :String { return "" }
-    
     var isLoading:Bool = false
     
     let bag = DisposeBag()
@@ -24,17 +22,8 @@ class BaseViewModel: NSObject {
     var showEmptyStateSubject = PublishSubject<EmptyStateViewModel>()
     var hideEmptyStateSubject = PublishSubject<Void>()
     
-    var showLoading: Observable<LoadingType> {
-        return showLoadingSubject.asObservable()
-    }
-    
-    var hideLoading: Observable<LoadingType> {
-        return hideLoadingSubject.asObservable()
-    }
-    
-    var showEmptyState: Observable<EmptyStateViewModel> {
-        return showEmptyStateSubject.asObservable()
-    }
+    var popViewControllerSubject = PublishSubject<Void>()
+    var dismissViewControllerSubject = PublishSubject<Void>()
     
     func showLoading(loadingType:LoadingType){
         if !isLoading {
@@ -64,5 +53,13 @@ class BaseViewModel: NSObject {
     
     func hideEmptyState(){
         hideEmptyStateSubject.onNext(())
+    }
+    
+    func popView(){
+        popViewControllerSubject.onNext(())
+    }
+    
+    func dismissView(){
+        dismissViewControllerSubject.onNext(())
     }
 }

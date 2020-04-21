@@ -6,21 +6,18 @@
 //  Copyright © 2020 Mohamed Abd el-latef. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import RxRelay
 import RxSwift
 
 class RatesViewModel: BaseViewModel {
     
-    override var viewControllerIdentifier: String{
-        return RatesViewController.identifier
-    }
-    
     let ratesdataSource: BehaviorRelay<[RateCellViewModel]> = BehaviorRelay(value: [])
-    let symbolsdataSource: BehaviorRelay<[CurrencyCellViewModel]> = BehaviorRelay(value: [])
-    var selectedCurrencySubject = PublishSubject<CurrencyCellViewModel>()
+    let symbolsdataSource: BehaviorRelay<[SymbolCellViewModel]> = BehaviorRelay(value: [])
+    var selectedSymbolSubject = PublishSubject<SymbolCellViewModel>()
     let networkManager = CurrencyConverterNetwrokManager()
-    var selectedCurrency:CurrencyCellViewModel?
+    var showSymbolsPickerSubject = PublishSubject<SymbolsPickerViewModel>()
+    
     
     override init() {
         super.init()
@@ -43,19 +40,20 @@ class RatesViewModel: BaseViewModel {
     }
     
     private func configureBindings(){
-        selectedCurrencySubject.asObservable().subscribe(onNext: { [weak self] (currencyCellViewModel) in
+        selectedSymbolSubject.asObservable().subscribe(onNext: { [weak self] (currencyCellViewModel) in
             guard let self = self else { return }
             self.configureRatesWith(selectedCurrency: currencyCellViewModel)
-            self.selectedCurrency = currencyCellViewModel
+            currencyCellViewModel.isSelected.accept(true)
         }).disposed(by: bag)
     }
     
-    private func configureRatesWith(selectedCurrency:CurrencyCellViewModel){
+    private func configureRatesWith(selectedCurrency:SymbolCellViewModel){
+//        showLoading(loadingType: .Placeholder)
         networkManager.getRates(base: selectedCurrency.currency).subscribe(
             onSuccess: { [weak self] (rateResponse) in
                 guard let self = self else { return }
-                self.configureRatesDataSource(rateResponse: rateResponse)
                 self.hideLoading(loadingType: .Placeholder)
+                self.configureRatesDataSource(rateResponse: rateResponse)
             },
             onError: { [weak self] (apiError) in
                 guard let self = self else { return }
@@ -72,16 +70,16 @@ class RatesViewModel: BaseViewModel {
             return
         }
         
-        let cellviewModels  = symbols.keys.compactMap { (currency) -> CurrencyCellViewModel? in
+        let cellviewModels  = symbols.keys.sorted().compactMap { (currency) -> SymbolCellViewModel? in
             let name = symbols[currency] ?? ""
-            return CurrencyCellViewModel(currency: currency, name: name)
+            return SymbolCellViewModel(currency: currency, name: name)
         }
         
         let usdCellViewModel = cellviewModels.first(where: { (cellViewModel) -> Bool in
             return cellViewModel.currency.lowercased() == "usd"
         })
         if let usdCellViewModel = usdCellViewModel {
-            selectedCurrencySubject.onNext(usdCellViewModel)
+            selectedSymbolSubject.onNext(usdCellViewModel)
         }
         symbolsdataSource.accept(cellviewModels)
     }
@@ -94,11 +92,19 @@ class RatesViewModel: BaseViewModel {
         }
         
         let cellviewModels  = rates.keys.sorted().compactMap { (currency) -> RateCellViewModel? in
-            let rate = String(rates[currency] ?? 0)
+            let rate = String(format: "%0.2f", rates[currency] ?? 0)
             return RateCellViewModel(currency: currency, rate: rate )
         }
         
         ratesdataSource.accept(cellviewModels)
+    }
+    
+    func handleActionForSelectedSymbol(){
+        let pickerViewModel = SymbolsPickerViewModel(dataSource: symbolsdataSource)
+        pickerViewModel.selectedSymbol.subscribe(onNext: { [unowned self] (selectedCellviewModel) in
+            self.selectedSymbolSubject.onNext(selectedCellviewModel)
+        }).disposed(by: bag)
+        showSymbolsPickerSubject.onNext(pickerViewModel)
     }
     
 }

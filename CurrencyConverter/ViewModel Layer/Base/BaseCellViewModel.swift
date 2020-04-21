@@ -10,8 +10,4 @@ import UIKit
 
 class BaseCellViewModel: NSObject {
     
-    var cellIdentifier:String {
-        return ""
-    }
-
 }

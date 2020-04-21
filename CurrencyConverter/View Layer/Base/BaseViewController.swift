@@ -22,8 +22,9 @@ class BaseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     func configureBindings() {
-        baseViewModel.showLoading.observeOn(MainScheduler.instance)
+        baseViewModel.showLoadingSubject.asObservable().observeOn(MainScheduler.instance)
             .subscribe(onNext: { (loadingType) in
                 if loadingType == .Default {
                     let activityData = ActivityData(color: .blue )
@@ -32,7 +33,7 @@ class BaseViewController: UIViewController {
             })
             .disposed(by: bag)
         
-        baseViewModel.hideLoading.observeOn(MainScheduler.instance)
+        baseViewModel.hideLoadingSubject.asObservable().observeOn(MainScheduler.instance)
             .subscribe(onNext: {(loadingType) in
                 if loadingType == .Default {
                     NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
@@ -40,7 +41,7 @@ class BaseViewController: UIViewController {
             })
             .disposed(by: bag)
         
-        baseViewModel.showEmptyStateSubject.observeOn(MainScheduler.instance)
+        baseViewModel.showEmptyStateSubject.asObservable().observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] (emptyStateViewModel) in
                 guard let self  = self else { return }
                 self.emptyStateView = EmptyStateView.emptyStateView(viewModel: emptyStateViewModel, frame: self.view.bounds)
@@ -49,11 +50,25 @@ class BaseViewController: UIViewController {
             .disposed(by: bag)
         
         
-        baseViewModel.hideEmptyStateSubject.observeOn(MainScheduler.instance)
+        baseViewModel.hideEmptyStateSubject.asObservable().observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
                 guard let self  = self else { return }
                 self.emptyStateView?.removeFromSuperview()
                 self.emptyStateView = nil
+            })
+            .disposed(by: bag)
+        
+        baseViewModel.dismissViewControllerSubject.asObservable().observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                guard let self  = self else { return }
+                self.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: bag)
+        
+        baseViewModel.popViewControllerSubject.asObservable().observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                guard let self  = self else { return }
+                self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: bag)
     }
