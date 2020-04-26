@@ -22,7 +22,7 @@ func fibonacciIterative(_ number: Int) -> Int {
     }
     return first
 }
-let iterativeValue = fibonacciIterative2(10)
+let iterativeValue = fibonacciIterative(10)
 
 
 
